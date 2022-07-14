@@ -1,0 +1,212 @@
+hduser@bmsce-Precision-T1700:~$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+hduser@localhost's password: 
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-bmsce-Precision-T1700.out
+Starting secondary namenodes [0.0.0.0]
+hduser@0.0.0.0's password: 
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-bmsce-Precision-T1700.out
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-bmsce-Precision-T1700.out
+hduser@localhost's password: 
+localhost: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-bmsce-Precision-T1700.out
+hduser@bmsce-Precision-T1700:~$ jds
+
+Command 'jds' not found, but there are 23 similar ones.
+
+hduser@bmsce-Precision-T1700:~$ jps
+2960 NameNode
+4578 Jps
+3144 DataNode
+3882 NodeManager
+3515 ResourceManager
+3356 SecondaryNameNode
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir /abc
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir abc
+mkdir: `abc': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir abc1
+mkdir: `abc1': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir /abc1
+hduser@bmsce-Precision-T1700:~$ hdfs dfs ls
+ls: Unknown command
+Did you mean -ls?  This command begins with a dash.
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls
+ls: `.': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /
+Found 13 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:26 /abc
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:27 /abc1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 09:44 /cs185
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 15:04 /dishagubald
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:35 /duplicate
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /file1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /hello
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:28 /praveen138
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:33 /sajjan
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:37 /sajjan2
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /test
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:19 /user
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/hduser/Desktop/names.txt /abc/Names_in_dfs.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /abc/Names_in_dfs.txt
+shilpa
+supriya
+sush,a
+veda
+bhavana
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromlocal /home/hduser/desktop/names.txt /abc/Names1.txt
+-copyFromlocal: Unknown command
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/desktop/names.txt /abc/Names1.txt
+copyFromLocal: `/home/hduser/desktop/names.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/Desktop/names.txt /abc/Names1.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /abc/Names1.txt
+shilpa
+supriya
+sush,a
+veda
+bhavana
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -get /abc/Names_in_dfs.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -get /abc/Names_in_dfs.txt /home/hduser/Downloads/downloaded_names.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -getmerge /abc/Names1.txt /abc/Names_in_dfs.txt /home/hduser/Desktop/merged_files.txt
+hduser@bmsce-Precision-T1700:~$ sudo nano new.txt
+[sudo] password for hduser: 
+hduser@bmsce-Precision-T1700:~$ SUDO NANO 112.TXT
+SUDO: command not found
+hduser@bmsce-Precision-T1700:~$ sudo nano 112.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /
+Found 13 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:40 /abc
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:27 /abc1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 09:44 /cs185
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 15:04 /dishagubald
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:35 /duplicate
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /file1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /hello
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:28 /praveen138
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:33 /sajjan
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:37 /sajjan2
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /test
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:19 /user
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /abc
+Found 2 items
+-rw-r--r--   1 hduser supergroup         36 2022-06-04 09:40 /abc/Names1.txt
+-rw-r--r--   1 hduser supergroup         36 2022-06-04 09:32 /abc/Names_in_dfs.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -getfacl /abc1/
+# file: /abc1
+# owner: hduser
+# group: supergroup
+user::rwx
+group::r-x
+other::r-x
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -getfacl /abc1/Names_in_dfs.txt
+getfacl: `/abc1/Names_in_dfs.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -getfacl /abc/Names_in_dfs.txt
+# file: /abc/Names_in_dfs.txt
+# owner: hduser
+# group: supergroup
+user::rw-
+group::r--
+other::r--
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names-in_dfs.txt /home/hduser/Desktop
+copyToLocal: `/abc/Names-in_dfs.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names_in_dfs.txt /home/hduser/Desktop
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names_in_dfs.txt /home/hduser/Desktop/files.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names_in_dfs.txt /home/hduser/Desktop
+copyToLocal: `/home/hduser/Desktop/Names_in_dfs.txt': File exists
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names_in_dfs.txt /home/hduser/Desktop/file1.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names_in_dfs.txt /home/hduser/Desktop
+copyToLocal: `/home/hduser/Desktop/Names_in_dfs.txt': File exists
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names.txt /home/hduser/Desktop
+copyToLocal: `/abc/Names.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Names1.txt /home/hduser/Desktop
+hduser@bmsce-Precision-T1700:~$ hadoop fs -mv /abc /new
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /new
+Found 2 items
+-rw-r--r--   1 hduser supergroup         36 2022-06-04 09:40 /new/Names1.txt
+-rw-r--r--   1 hduser supergroup         36 2022-06-04 09:32 /new/Names_in_dfs.txt
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cp /CSE/ /LLL
+cp: `/CSE/': No such file or directory
+hduser@bmsce-Precision-T1700:~$ cd abc
+bash: cd: abc: No such file or directory
+hduser@bmsce-Precision-T1700:~$ cd /abc
+bash: cd: /abc: No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs cd /abc
+cd: Unknown command
+hduser@bmsce-Precision-T1700:~$ hdfs dfs cd abc
+cd: Unknown command
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /abc1
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /abc1
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cp /abc/Names1.txt /abc1
+cp: `/abc/Names1.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /abc
+ls: `/abc': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /
+Found 13 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:27 /abc1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 09:44 /cs185
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 15:04 /dishagubald
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:35 /duplicate
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /file1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /hello
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:40 /new
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:28 /praveen138
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:33 /sajjan
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:37 /sajjan2
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /test
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:19 /user
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir abc
+mkdir: `abc': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir /abc
+hduser@bmsce-Precision-T1700:~$ hdfs dfs put /home/hduser/Desktop/xyz.txt /abc/new_file.txt
+put: Unknown command
+Did you mean -put?  This command begins with a dash.
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/hduser/Desktop/xyz.txt /abc/new_file.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cp /abc/new-file.txt /abc1
+cp: `/abc/new-file.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /
+Found 14 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 10:17 /abc
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:27 /abc1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 09:44 /cs185
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 15:04 /dishagubald
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:35 /duplicate
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /file1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /hello
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:40 /new
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:28 /praveen138
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:33 /sajjan
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:37 /sajjan2
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /test
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:19 /user
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cp /abc/new_file.txt /abc1
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -ls /abc1
+Found 1 items
+-rw-r--r--   1 hduser supergroup          6 2022-06-04 10:18 /abc1/new_file.txt
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /
+Found 14 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 10:17 /abc
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 10:18 /abc1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 09:44 /cs185
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 15:04 /dishagubald
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:35 /duplicate
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /file1
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /hello
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:40 /new
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 10:28 /praveen138
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:33 /sajjan
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:37 /sajjan2
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:03 /test
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:19 /user
+hduser@bmsce-Precision-T1700:~$ 
+
+
